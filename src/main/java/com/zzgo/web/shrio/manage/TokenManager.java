@@ -29,7 +29,7 @@ public class TokenManager {
      */
     public static User login(User user, Boolean remeberMe) {
         String username = user.getName();
-        ShiroToken token = new ShiroToken(username, user.getPass());
+        ShiroToken token = new ShiroToken(username, user.getPassword());
         /**
          * 是否记住
          */

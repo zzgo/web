@@ -57,7 +57,7 @@ public class ShiroRealm extends AuthorizingRealm {
         ShiroToken token = (ShiroToken) authcToken;
         User user = new User();
         user.setName("zhangsan");
-        user.setPass("123456");
+        user.setPassword("123456");
         return new
                 SimpleAuthenticationInfo(user, token.getLoginPass(), getName());
     }

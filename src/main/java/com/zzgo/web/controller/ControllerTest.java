@@ -23,9 +23,12 @@ public class ControllerTest {
     @RequestMapping("/mapper")
     public void testSaveUser2() throws Exception {
         User user = new User();
-        user.setId("2222");
-        user.setName("userService");
-        user.setPass("userService");
         userService.saveUser(user);
     }
+
+    @RequestMapping("/index")
+    public void index() throws Exception {
+        System.out.println("index");
+    }
+
 }
