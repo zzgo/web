@@ -13,3 +13,13 @@ spring-shrio.xml
 jdbc.properties
 log4j.properties
 
+
+1.设计数据库
+用户表
+感应器材表
+角色表
+权限表
+SQL文件放在web\src\main\webapp\STATIC\SQL设计
+2.设计接口
+3.设计页面
+4.测试
