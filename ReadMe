@@ -1,0 +1,15 @@
+1.导入springmvc包
+2.mysql驱动
+3.mydatis
+4.hibernate
+5.redis
+6.shrio
+
+配置
+springmvc.xml
+spring-mydatis.xml
+spring-hibernate.xml
+spring-shrio.xml
+jdbc.properties
+log4j.properties
+

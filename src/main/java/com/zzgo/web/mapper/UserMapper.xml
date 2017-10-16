@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zzgo.web.mapper.UserMapper">
+
+    <!--配置MAP -->
+    <!--<resultMap type="mail" id="BaseResultMap">-->
+    <!--<id column="mail_id" property="id"/>-->
+    <!--<result column="mail_content" property="content"/>-->
+    <!--<result column="mail_name" property="name"/>-->
+    <!--<result column="mail_call" property="call"/>-->
+    <!--<result column="mail_email" property="email"/>-->
+    <!--<result column="mail_date" property="date"/>-->
+    <!--<result column="mail_reply" property="reply"/>-->
+    <!--<result column="mail_show" property="show"/>-->
+    <!--</resultMap>-->
+    <!--表名 -->
+    <sql id="tableName">
+        USER
+    </sql>
+    <!-- 字段 -->
+    <sql id="Field">
+        user_id,
+        user_name,
+        user_pass
+    </sql>
+    <!-- 字段值 -->
+    <sql id="FieldValue">
+        #{id},
+        #{name},
+        #{pass}
+    </sql>
+    <!-- 添加 -->
+    <insert id="saveUser" parameterType="com.zzgo.web.model.User">
+        INSERT INTO
+        <include refid="tableName"></include>
+        (
+        <include refid="Field"></include>
+        )
+        VALUE(
+        <include refid="FieldValue"></include>
+        )
+    </insert>
+</mapper>
