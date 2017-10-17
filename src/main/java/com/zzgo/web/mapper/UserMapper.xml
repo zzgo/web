@@ -19,18 +19,34 @@
     </sql>
     <!-- 字段 -->
     <sql id="Field">
-        user_id,
-        user_name,
-        user_pass
+        USER_ID,
+        USER_LOGINNAME,
+        USER_PASSWORD,
+        USER_LOGINCOUNT,
+        USER_LASTLOGINTIME,
+        USER_NAME,
+        USER_SEX,
+        USER_EMAIL,
+        USER_TEL,
+        USER_NOTE,
+        USER_CREATETIME
     </sql>
     <!-- 字段值 -->
     <sql id="FieldValue">
         #{id},
+        #{loginName},
+        #{password},
+        #{loginCount},
+        #{lastLoginTime},
         #{name},
-        #{pass}
+        #{sex},
+        #{email},
+        #{tel},
+        #{note},
+        #{createTime}
     </sql>
     <!-- 添加 -->
-    <insert id="saveUser" parameterType="com.zzgo.web.model.User">
+    <insert id="save" parameterType="com.zzgo.web.model.User">
         INSERT INTO
         <include refid="tableName"></include>
         (

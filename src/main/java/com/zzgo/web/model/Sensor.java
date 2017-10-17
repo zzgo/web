@@ -6,13 +6,13 @@ package com.zzgo.web.model;
  */
 public class Sensor {
     private int id;
-    private String model;
-    private String location;
-    private int happenCount;
-    private int isFocus;
-    private int isNormal;
-    private int createTime;
-    private String note;
+    private String model;//型号
+    private String location;//位置
+    private int happenCount;//发生次数
+    private int isFocus;//是否关注
+    private int isNormal;//是否正常
+    private int createTime;//创建时间
+    private String note;//备注
 
     public int getId() {
         return id;

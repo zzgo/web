@@ -8,9 +8,9 @@ import java.util.Date;
  */
 public class Role {
     private int id;
-    private String name;
-    private String note;
-    private Date createTime;
+    private String name;//角色名称
+    private String note;//备注
+    private Date createTime;//创建时间
 
     public int getId() {
         return id;

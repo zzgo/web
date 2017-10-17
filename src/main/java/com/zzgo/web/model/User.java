@@ -8,16 +8,16 @@ import java.util.Date;
  */
 public class User {
     private int id;
-    private String loginName;
-    private String password;
-    private int loginCount;
-    private Date lastLoginTime;
-    private String name;
-    private String sex;
-    private String email;
-    private String tel;
-    private String note;
-    private Date createTime;
+    private String loginName;//登录名称
+    private String password;//密码
+    private int loginCount;//登录次数
+    private Date lastLoginTime;//上一次登录时间
+    private String name;//姓名
+    private int sex;//性别
+    private String email;//邮箱
+    private String tel;//电话
+    private String note;//备注
+    private Date createTime;//创建时间
 
     public int getId() {
         return id;
@@ -67,11 +67,11 @@ public class User {
         this.name = name;
     }
 
-    public String getSex() {
+    public int getSex() {
         return sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(int sex) {
         this.sex = sex;
     }
 
