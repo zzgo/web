@@ -56,4 +56,12 @@
         <include refid="FieldValue"></include>
         )
     </insert>
+    <!-- 删除 -->
+    <delete id="delete" parameterType="Integer">
+        DELETE FROM
+        <include refid="tableName"></include>
+        WHERE USER_ID = #{userId}
+    </delete>
+
+
 </mapper>
