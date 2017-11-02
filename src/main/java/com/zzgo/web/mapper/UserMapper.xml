@@ -19,7 +19,6 @@
     </sql>
     <!-- 字段 -->
     <sql id="Field">
-        USER_ID,
         USER_LOGINNAME,
         USER_PASSWORD,
         USER_LOGINCOUNT,
@@ -33,7 +32,6 @@
     </sql>
     <!-- 字段值 -->
     <sql id="FieldValue">
-        #{id},
         #{loginName},
         #{password},
         #{loginCount},
@@ -46,7 +44,7 @@
         #{createTime}
     </sql>
     <!-- 添加 -->
-    <insert id="save" parameterType="com.zzgo.web.model.User">
+    <insert id="save" parameterType="user">
         INSERT INTO
         <include refid="tableName"></include>
         (
@@ -60,8 +58,43 @@
     <delete id="delete" parameterType="Integer">
         DELETE FROM
         <include refid="tableName"></include>
-        WHERE USER_ID = #{userId}
+        WHERE USER_ID = #{value}
     </delete>
+    <!-- 修改 -->
+    <update id="update" parameterType="user">
+        UPDATE
+        <include refid="tableName"></include>
+        <set>
+            <if test="loginName!=null">
+                USER_LOGINNAME=#{loginName},
+            </if>
+            <if test="password!=null">
+                USER_PASSWORD = #{password},
+            </if>
+            <if test="loginCount!=0">
+                USER_LOGINCOUNT = #{loginCount},
+            </if>
+            <if test="lastLoginTime!=null">
+                USER_LASTLOGINTIME = #{lastLoginTime},
+            </if>
+            <if test="name!=null">
+                USER_NAME = #{name},
+            </if>
+            <if test="sex!=null">
+                USER_SEX = #{sex},
+            </if>
+            <if test="email!=null">
+                USER_EMAIL = #{email},
+            </if>
+            <if test="tel!=null">
+                USER_TEL = #{tel},
+            </if>
+            <if test="note!=null">
+                USER_NOTE = #{note}
+            </if>
+        </set>
+
+    </update>
 
 
 </mapper>

@@ -22,16 +22,20 @@ public class UserServiceImpl implements UserService {
         userMapper.save(user);
     }
 
-    public void delete(int userId) {
-        userMapper.delete(userId);
+    public void delete(int id) {
+        userMapper.delete(id);
     }
 
-    public void update(int userId, User user) {
-        user.setId(userId);
+    public void update(int id, User user) {
+        user.setId(id);
         userMapper.update(user);
     }
 
     public List<User> findAll() {
         return userMapper.findAll();
+    }
+
+    public User findOne(int id) {
+        return userMapper.findOne(id);
     }
 }

@@ -2,31 +2,30 @@ package com.zzgo.web.controller;
 
 import com.zzgo.web.model.User;
 import com.zzgo.web.service.UserService;
-import com.zzgo.web.util.DateUtils;
-import com.zzgo.web.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value = "user")
 public class UserController extends BaseController {
     @Autowired
     private UserService userService;
 
     //用户信息添加页面
     @RequestMapping(value = "userinfo/tosave", method = {RequestMethod.GET})
-    String userinfoTosave() {
+    String userinfoTosave(int userId) {
+        //TODO 查询用户
+        userService.findOne(userId);
         return "";
     }
 
     //用户信息添加
-    @RequestMapping(value = "userinfo/save", method = {RequestMethod.POST})
-    ModelAndView userinfoSave() {
+    @RequestMapping(value = "userinfo/save", method = {RequestMethod.GET})
+    ModelAndView userinfoSave(User user) {
         ModelAndView mv = getMv();
+        userService.update(user.getId(), user);
         return mv;
     }
 
@@ -37,15 +36,21 @@ public class UserController extends BaseController {
     }
 
     //用户注册账号
-    @RequestMapping(value = "user/save", method = {RequestMethod.POST})
+    @RequestMapping(value = "user/save", method = {RequestMethod.GET})
     ModelAndView userSave() {
         ModelAndView mv = getMv();
+        User user = new User();
+        user.setName("admin");
+        user.setPassword("admin");
+        userService.save(user);
+        System.out.println("##  保存成功");
         return mv;
     }
 
     //用户删除
     @RequestMapping(value = "user/delete", method = {RequestMethod.GET})
-    String userDelete() {
+    String userDelete(int userId) {
+        userService.delete(userId);
         return "redirect:user/list";
     }
 

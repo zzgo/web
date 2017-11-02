@@ -1,10 +1,6 @@
 package com.zzgo.web.controller;
 
-import com.zzgo.web.model.User;
-import com.zzgo.web.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Created by 9527 on 2017/10/12.
@@ -30,5 +26,7 @@ public class ControllerTest {
     //public void index() throws Exception {
     //    System.out.println("index");
     //}
+
+
 
 }
