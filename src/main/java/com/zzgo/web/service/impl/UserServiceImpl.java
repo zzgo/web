@@ -1,6 +1,7 @@
 package com.zzgo.web.service.impl;
 
 import com.zzgo.web.mapper.UserMapper;
+import com.zzgo.web.model.PageData;
 import com.zzgo.web.model.User;
 import com.zzgo.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,15 @@ public class UserServiceImpl implements UserService {
         return userMapper.findAll();
     }
 
+    public List<User> findByPage(PageData page) {
+        return userMapper.findByPage(page);
+    }
+
     public User findOne(int id) {
         return userMapper.findOne(id);
+    }
+
+    public User findByName(String name) {
+        return userMapper.findByName(name);
     }
 }

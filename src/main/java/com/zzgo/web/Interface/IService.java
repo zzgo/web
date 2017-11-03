@@ -1,5 +1,7 @@
 package com.zzgo.web.Interface;
 
+import com.zzgo.web.model.PageData;
+
 import java.util.List;
 
 /**
@@ -14,5 +16,9 @@ public interface IService<T> {
 
     List<T> findAll();
 
+    List<T> findByPage(PageData page);
+
     T findOne(int id);
+
+    T findByName(String name);
 }

@@ -5,7 +5,10 @@
 <configuration>
 
     <!-- 全局setting配置，根据需要添加 -->
-
+    <settings>
+        <!-- 开发阶段使用。打印数据库语句-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
     <!-- 配置别名 -->
     <typeAliases>
         <!--<typeAlias type="com.cwfx.model.PageData" alias="pd"/>-->

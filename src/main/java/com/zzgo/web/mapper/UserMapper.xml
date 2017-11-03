@@ -3,16 +3,19 @@
 <mapper namespace="com.zzgo.web.mapper.UserMapper">
 
     <!--配置MAP -->
-    <!--<resultMap type="mail" id="BaseResultMap">-->
-    <!--<id column="mail_id" property="id"/>-->
-    <!--<result column="mail_content" property="content"/>-->
-    <!--<result column="mail_name" property="name"/>-->
-    <!--<result column="mail_call" property="call"/>-->
-    <!--<result column="mail_email" property="email"/>-->
-    <!--<result column="mail_date" property="date"/>-->
-    <!--<result column="mail_reply" property="reply"/>-->
-    <!--<result column="mail_show" property="show"/>-->
-    <!--</resultMap>-->
+    <resultMap type="user" id="BaseResultMap">
+        <id column="USER_ID" property="id"/>
+        <result column="USER_LOGINNAME" property="loginName"/>
+        <result column="USER_PASSWORD" property="password"/>
+        <result column="USER_LOGINCOUNT" property="loginCount"/>
+        <result column="USER_LASTLOGINTIME" property="lastLoginTime"/>
+        <result column="USER_NAME" property="name"/>
+        <result column="USER_SEX" property="sex"/>
+        <result column="USER_EMAIL" property="email"/>
+        <result column="USER_TEL" property="tel"/>
+        <result column="USER_NOTE" property="note"/>
+        <result column="USER_CREATETIME" property="createTime"/>
+    </resultMap>
     <!--表名 -->
     <sql id="tableName">
         USER
@@ -93,8 +96,66 @@
                 USER_NOTE = #{note}
             </if>
         </set>
-
     </update>
+    <!-- 查询一个-->
+    <select id="findOne" parameterType="Integer" resultMap="BaseResultMap">
+        SELECT USER_ID,USER_LOGINNAME,
+        USER_PASSWORD,
+        USER_LOGINCOUNT,
+        USER_LASTLOGINTIME,
+        USER_NAME,
+        USER_SEX,
+        USER_EMAIL,
+        USER_TEL,
+        USER_NOTE,
+        USER_CREATETIME FROM
+        <include refid="tableName"></include>
+        WHERE USER_ID = #{id}
+    </select>
 
+    <!-- 查询一个-->
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT USER_ID,USER_LOGINNAME,
+        USER_PASSWORD,
+        USER_LOGINCOUNT,
+        USER_LASTLOGINTIME,
+        USER_NAME,
+        USER_SEX,
+        USER_EMAIL,
+        USER_TEL,
+        USER_NOTE,
+        USER_CREATETIME FROM
+        <include refid="tableName"></include>
+    </select>
+
+    <select id="findByPage" parameterType="page" resultMap="BaseResultMap">
+        SELECT USER_ID,USER_LOGINNAME,
+        USER_PASSWORD,
+        USER_LOGINCOUNT,
+        USER_LASTLOGINTIME,
+        USER_NAME,
+        USER_SEX,
+        USER_EMAIL,
+        USER_TEL,
+        USER_NOTE,
+        USER_CREATETIME FROM
+        <include refid="tableName"></include>
+        LIMIT #{pageNum},#{pageSize}
+    </select>
+
+    <select id="findByName" parameterType="String" resultMap="BaseResultMap">
+        SELECT USER_ID,USER_LOGINNAME,
+        USER_PASSWORD,
+        USER_LOGINCOUNT,
+        USER_LASTLOGINTIME,
+        USER_NAME,
+        USER_SEX,
+        USER_EMAIL,
+        USER_TEL,
+        USER_NOTE,
+        USER_CREATETIME FROM
+        <include refid="tableName"></include>
+        WHERE USER_LOGINNAME = #{loginName}
+    </select>
 
 </mapper>
