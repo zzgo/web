@@ -7,6 +7,7 @@ import java.util.List;
 /**
  * Created by 9527 on 2017/10/30.
  */
+
 public interface IService<T> {
     void save(T t);
 
@@ -18,7 +19,7 @@ public interface IService<T> {
 
     List<T> findByPage(PageData page);
 
-    T findOne(int id);
+    int getCount();
 
-    T findByName(String name);
+    T findOne(int id);
 }

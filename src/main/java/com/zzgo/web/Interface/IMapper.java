@@ -7,6 +7,7 @@ import java.util.List;
 /**
  * Created by 9527 on 2017/10/30.
  */
+
 public interface IMapper<T> {
     void save(T t);
 
@@ -18,8 +19,7 @@ public interface IMapper<T> {
 
     List<T> findByPage(PageData page);
 
+    int getCount();
+
     T findOne(int id);
-
-    T findByName(String name);
-
 }

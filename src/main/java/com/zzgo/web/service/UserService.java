@@ -7,5 +7,5 @@ import com.zzgo.web.model.User;
  * Created by 9527 on 2017/10/12.
  */
 public interface UserService extends IService<User> {
-
+    User findByName(String name);
 }

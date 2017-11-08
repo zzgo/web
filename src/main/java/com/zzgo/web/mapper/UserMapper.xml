@@ -143,6 +143,10 @@
         LIMIT #{pageNum},#{pageSize}
     </select>
 
+    <select id="getCount" resultType="Integer">
+        SELECT COUNT(*) FROM <include refid="tableName"></include>
+    </select>
+
     <select id="findByName" parameterType="String" resultMap="BaseResultMap">
         SELECT USER_ID,USER_LOGINNAME,
         USER_PASSWORD,

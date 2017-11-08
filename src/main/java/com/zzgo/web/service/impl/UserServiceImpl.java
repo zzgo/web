@@ -40,6 +40,10 @@ public class UserServiceImpl implements UserService {
         return userMapper.findByPage(page);
     }
 
+    public int getCount() {
+        return userMapper.getCount();
+    }
+
     public User findOne(int id) {
         return userMapper.findOne(id);
     }

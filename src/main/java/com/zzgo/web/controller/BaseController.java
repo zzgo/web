@@ -9,8 +9,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BaseController {
+    protected static final int TEN = 10;
     private ModelAndView mv = new ModelAndView();
-    private Map<String, String> result = new HashMap<String, String>();
+    private Map<String, Object> responseResult = new HashMap<String, Object>();
 
     public ModelAndView getMv() {
         return mv;
@@ -20,24 +21,24 @@ public class BaseController {
         this.mv = mv;
     }
 
-    public Map<String, String> getResult() {
-        return result;
-    }
-
-    public void setResult(Map<String, String> result) {
-        this.result = result;
-    }
 
     //返回成功
-    public Map<String, String> ajaxSuccess() {
-        result.put("msg", "success");
-        return result;
+    public Map<String, Object> ajaxSuccess() {
+        return ajaxSuccess("");
+    }
+
+    public Map<String, Object> ajaxSuccess(Object result) {
+        responseResult.put("msg", "success");
+        responseResult.put("code", 200);
+        responseResult.put("responseResult", result);
+        return responseResult;
     }
 
     //返回失败
-    public Map<String, String> ajaxFail() {
-        result.put("msg", "fail");
-        return result;
+    public Map<String, Object> ajaxFail() {
+        responseResult.put("msg", "fail");
+        responseResult.put("code", 400);
+        return responseResult;
     }
 
     public HttpServletRequest getRequest() {
